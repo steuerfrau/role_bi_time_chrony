@@ -1,0 +1,2 @@
+role_bi_time_chrony_package: chrony
+role_bi_time_chrony_service: chronyd
