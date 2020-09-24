@@ -1,14 +1,8 @@
 # Use public servers from the pool.ntp.org project.
 # Please consider joining the pool (http://www.pool.ntp.org/join.html).
-{% if hostvars[inventory_hostname]['role_bi_time_chrony_timeservers'] is defined %}
-{% for timeserver in hostvars[inventory_hostname]['role_bi_time_chrony_timeservers'] %}
+{% for timeserver in role_bi_time_chrony_timeservers %}
 pool {{ timeserver }} iburst
 {% endfor %}
-{% else %}
-{% for timeserver in hostvars[inventory_hostname]['role_bi_time_chrony_timeservers_default'] %}
-pool {{ timeserver }} iburst
-{% endfor %}
-{% endif %}
 
 # Record the rate at which the system clock gains/losses time.
 driftfile /var/lib/chrony/drift

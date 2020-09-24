@@ -1,7 +1,2 @@
 ---
 # vars file for role_bi_time_chrony/
-role_bi_time_chrony_timeservers_default:
-  - 0.de.pool.ntp.org
-  - 1.de.pool.ntp.org
-  - 2.de.pool.ntp.org
-  - 3.de.pool.ntp.org
