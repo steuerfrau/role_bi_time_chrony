@@ -1,20 +1,13 @@
 - name: Create chrony configuration
   template:
     src: templates/etc_chrony_conf-{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.j2
-    dest: /etc/chrony.conf
+    dest: "{{ role_bi_time_chrony_location_chrony_conf }}"
     owner: root
     group: root
     mode: '0644'
-  register: role_bi_time_chrony_etc_chrony_conf
-
-- name: Reload chrony configuration.
-  service:
-    name: "{{ role_bi_time_chrony_service }}"
-    state: restarted
-  when: role_bi_time_chrony_etc_chrony_conf.changed
+  notify: chronyd_restart
 
 - name: Enable chrony configuration.
   service:
     name: "{{ role_bi_time_chrony_service }}"
     enabled: yes
-  when: role_bi_time_chrony_etc_chrony_conf.changed
