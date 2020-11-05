@@ -1,0 +1,3 @@
+role_bi_time_chrony_package: chrony
+role_bi_time_chrony_service: chrony
+role_bi_time_chrony_location_chrony_conf: /etc/chrony/chrony.conf
